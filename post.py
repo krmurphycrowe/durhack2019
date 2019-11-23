@@ -15,7 +15,6 @@ def load_file(to_load, key):
         print('File is in an invalid format')
         return 0
 
-
 def post(text):
     try:
         # loads json details file and saves in variables
