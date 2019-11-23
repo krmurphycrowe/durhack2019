@@ -25,16 +25,12 @@ if __name__ == '__main__':
 
     api = tweepy.API(auth)
 
-    while True:
+    newTweets = pull.getBowisTweets(api)
 
-        newTweets = pull.getBowisTweets(api)
+    owoTweets = []
 
-        owoTweets = []
+    for tweet in newTweets:
+        owoTweets.append(uwu.uwuMe(tweet))
 
-        for tweet in newTweets:
-            owoTweets.append(uwu.uwuMe(tweet))
-
-        makeTweets(owoTweets)
-
-        time.sleep(600)
+    makeTweets(owoTweets)
 
