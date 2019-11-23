@@ -6,7 +6,7 @@ def loadMostRecentTweet():
     try:
         r = requests.get(url= URL)
         data = r.json()
-        return int(data["file"]["bowistweet"]["content"])
+        return int(data["files"]["bowistweet"]["content"])
     except:
         return 9999999999999999999
 
