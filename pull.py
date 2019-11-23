@@ -26,7 +26,7 @@ def saveMostRecentTweet(id):
         }
 
         result = requests.patch(URL, data=json.dumps(payload),headers=heads,params=params)
-        if result != 200:
+        if result.status_code != 200:
             print("Failed to push last tweet id, error",result)
     except:
         pass
