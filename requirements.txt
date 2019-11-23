@@ -1,4 +1,5 @@
 tweepy
 requests
 flask
+flask-cors
 gunicorn
