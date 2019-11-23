@@ -1,1 +1,1 @@
-web: python restful.py
+web: gunicorn app:restful
