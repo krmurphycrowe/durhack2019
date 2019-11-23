@@ -35,7 +35,7 @@ def getBowisTweets():
         uwus.append(uwu.uwuMe(body))
     return uwus[::-1] # Tweepy fetches them most-recent first and we want most-recent last, so we flip the list
 
-cachedTweets = []
+cachedTweets = getBowisTweets()
 cachedTime = datetime.datetime.now()
 
 @app.route("/api/v1/tweets", methods=["GET"])
@@ -60,6 +60,4 @@ def index():
     return "<h1> LOL LIMEWIRE SERVER IS UP XDDDDD UWU</h1>"
 
 if __name__ == '__main__':
-    cachedTweets = getBowisTweets()
-    cachedTime = datetime.datetime.now()
     app.run()
