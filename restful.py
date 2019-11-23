@@ -1,7 +1,9 @@
 import flask, tweepy, os, json, uwu, datetime
 from flask import request
+from flask_cors import CORS
 
 app = flask.Flask(__name__)
+CORS(app)
 
 def getBowisTweets():
     print("Regenerating cache")
