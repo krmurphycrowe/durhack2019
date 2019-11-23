@@ -51,4 +51,5 @@ def api_id():
 def index():
     return "<h1> LOL LIMEWIRE SERVER IS UP XDDDDD UWU</h1>"
 
-app.run()
+if __name__ == '__main__':
+    app.run()
