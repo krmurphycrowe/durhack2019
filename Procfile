@@ -1,1 +1,1 @@
-web: gunicorn app:restful
+web: gunicorn restful:app

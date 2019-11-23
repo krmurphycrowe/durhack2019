@@ -47,4 +47,8 @@ def api_id():
 
     return json.dumps(selected)
 
+@app.route("/")
+def index():
+    return "<h1> LOL LIMEWIRE SERVER IS UP XDDDDD UWU</h1>"
+
 app.run()
