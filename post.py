@@ -39,5 +39,3 @@ def post(text):
     except tweepy.error.TweepError:
         pass
 
-post('first tweet uwu')
-
