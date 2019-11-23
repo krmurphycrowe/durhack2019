@@ -19,7 +19,7 @@ def saveMostRecentTweet(id):
             "description": "bowis",
             "files": {
                 "bowistweet": {
-                    "content": id,
+                    "content": str(id),
                     "filename": "bowistweet"
                 }
             }
