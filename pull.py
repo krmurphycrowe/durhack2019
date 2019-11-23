@@ -21,7 +21,7 @@ def getBowisTweets(tAPI):
             bodies.append(tweet.retweeted_status.full_text) # Append the retweeted status
         except AttributeError: # Yada yada tweepy is dumb
             bodies.append(tweet.full_text) # Append the text of the tweet
-    #saveMostRecentTweet(mostRecent)
+    saveMostRecentTweet(mostRecent)
     newbod = [] # Creates a list for the processed bodies (again not as sus as it sounds)
     for body in bodies: # For every tweet body we have
         if not body.startswith(".@BorisJohnson"): # If it's not funky retweet
@@ -61,5 +61,3 @@ def test():
         print(getBowisTweets(api))
     except tweepy.error.TweepError:
         pass
-
-test()
