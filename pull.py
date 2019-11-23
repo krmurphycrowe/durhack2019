@@ -1,6 +1,6 @@
 import requests, json, os
 
-URL = "https://api.github.com/gists/7b6da3e88ce657fae4a5344f087d720b"
+URL = 'https://api.github.com/gists/7b6da3e88ce657fae4a5344f087d720b'
 
 def loadMostRecentTweet():
     try:

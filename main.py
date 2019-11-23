@@ -1,12 +1,10 @@
-import tweepy, json, pull, post, uwu, time
+import tweepy, json, pull, post, uwu, time, os
 
-filename = 'keys'
-key = 'DETAILS'
-file = post.load_file(filename, key)
-cKey = file["CONSUMER_KEY"]
-cSecret = file["CONSUMER_SECRET"]
-key1 = file["KEY1"]
-key2 = file["KEY2"]
+
+cKey = os.environ['cKey']
+cSecret = os.environ['cSecret']
+key1 = os.environ['key1']
+key2 = os.environ['key2']
 
 
 def makeTweets(tweetBodies):
@@ -21,7 +19,6 @@ def makeTweets(tweetBodies):
 
 
 if __name__ == '__main__':
-
     auth = tweepy.OAuthHandler(cKey, cSecret)
     auth.secure = True
     auth.set_access_token(key1, key2)
