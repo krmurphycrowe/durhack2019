@@ -36,7 +36,7 @@ def getBowisTweets():
     return uwus[::-1] # Tweepy fetches them most-recent first and we want most-recent last, so we flip the list
 
 cachedTweets = []
-cachedTime = 0
+cachedTime = datetime.datetime.now()
 
 @app.route("/api/v1/tweets", methods=["GET"])
 def api_id():
