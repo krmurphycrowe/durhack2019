@@ -1,16 +1,35 @@
-import tweepy, json
+import requests, json, os
+
+URL = "https://api.github.com/gists/7b6da3e88ce657fae4a5344f087d720b"
 
 def loadMostRecentTweet():
     try:
-        with open("lastTweet") as f:
-            lastID = f.read()
-            return int(lastID)
-    except FileNotFoundError:
-        return 0
+        r = requests.get(url= URL)
+        data = r.json()
+        return int(data["file"]["bowistweet"]["content"])
+    except:
+        return 9999999999999999999
 
 def saveMostRecentTweet(id):
-    with open ("lastTweet", "w") as f:
-        f.write(str(id))
+    try:
+        token = os.environ["gisttoken"]
+        heads = {"Authorization": 'token %s' % token}
+        params = {"scope": "gist"}
+        payload = {
+            "description": "bowis",
+            "files": {
+                "bowistweet": {
+                    "content": id,
+                    "filename": "bowistweet"
+                }
+            }
+        }
+
+        result = requests.patch(URL, data=json.dumps(payload),headers=heads,params=params)
+        if result != 200:
+            print("Failed to push last tweet id, error",result)
+    except:
+        pass
 
 def getBowisTweets(tAPI):
     """Returns list of text bodies of Boris Johnson's twitter feed."""
