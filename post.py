@@ -18,6 +18,7 @@ def load_file(to_load, key):
 
 def post(text):
     try:
+        # loads json details file and saves in variables
         filename = 'keys'
         key = 'DETAILS'
         file = load_file(filename, key)
@@ -26,10 +27,12 @@ def post(text):
         key1 = file["KEY1"]
         key2 = file["KEY2"]
 
+        # creates auth, which is needed to access the api
         auth = tweepy.OAuthHandler(cKey, cSecret)
         auth.secure = True
         auth.set_access_token(key1, key2)
 
+        # accesses api and posts status
         api = tweepy.API(auth)
         status = api.update_status(text)
         api.update_status(status=status)
