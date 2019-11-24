@@ -12,6 +12,32 @@ function getPage(pg){
         }
         console.log(typeof(tweetArray));
         console.log(tweetArray.length); 
-        document.getElementById("tweet1").innerHTML = tweetArray[0];
+        console.log(tweetArray);
+        let links = [];
+        let re = new RegExp("https:[^ ]*");
+        for(let x = 0; x < 20; x++){
+            let index = tweetArray[x].search(re);
+            if (index == -1){
+                links[x] = "";
+            }
+            else{
+                links[x] = tweetArray[x].slice(index,tweetArray[x].length);
+                tweetArray[x] = tweetArray[x].slice(0,index);
+            }
+        }
+        let i = 1
+        while(i <= 20){
+            if (tweetArray[i-1] == "EMPTY"){
+                document.getElementById("b"+i.toString()).innerHTML = "";
+                document.getElementById("t"+i.toString()).innerHTML = "";
+                document.getElementById("img"+i.toString()).innerHTML = "";
+            }
+            else{
+                document.getElementById("b"+i.toString()).innerHTML = "@BowisJownson";
+                document.getElementById("t"+i.toString()).innerHTML = tweetArray[i-1];
+                document.getElementById("img"+i.toString()).innerHTML = "";
+            }
+            i++;
+        }
     }
 }
