@@ -12,5 +12,6 @@ function getPage(pg){
         }
         console.log(typeof(tweetArray));
         console.log(tweetArray.length); 
+        document.getElementById("tweet1").innerHTML = tweetArray[0];
     }
 }
