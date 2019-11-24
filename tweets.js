@@ -10,9 +10,6 @@ function getPage(pg){
         while (tweetArray.length != 20){
             tweetArray.push("EMPTY");
         }
-        console.log(typeof(tweetArray));
-        console.log(tweetArray.length); 
-        console.log(tweetArray);
         let links = [];
         let re = new RegExp("https:[^ ]*");
         for(let x = 0; x < 20; x++){
@@ -25,6 +22,10 @@ function getPage(pg){
                 tweetArray[x] = tweetArray[x].slice(0,index);
             }
         }
+        for (let x = 0; x < 10; x++){
+            document.getElementById("bu"+x.toString()).classList.remove("btn-primary");
+        }
+        document.getElementById("bu"+(pg-1).toString()).classList.add("btn-primary");
         let i = 1
         while(i <= 20){
             if (tweetArray[i-1] == "EMPTY"){
@@ -40,5 +41,12 @@ function getPage(pg){
             }
             i++;
         }
+        (function smoothscroll(){
+            var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            if (currentScroll > 0) {
+                 window.requestAnimationFrame(smoothscroll);
+                 window.scrollTo (0,currentScroll - (currentScroll/5));
+            }
+        })();
     }
 }
