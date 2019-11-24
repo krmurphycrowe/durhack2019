@@ -6,7 +6,8 @@ function getPage(pg){
 
     Http.onreadystatechange=(e)=>{
         let res = Http.responseText;
-        let tweetArray = JSON.parse(res);
+        let tweetArray = JSON.parse(res)[0];
+        let timeArray = JSON.parse(res)[1];
         while (tweetArray.length != 20){
             tweetArray.push("EMPTY");
         }
