@@ -35,6 +35,7 @@ def getBowisTweets():
             newtime = str(ttime.hour) + ":0" + str(ttime.minute) + ", " + str(ttime.day) + "/" + str(ttime.month) + "/" + str(ttime.year)
         else:
             newtime = str(ttime.hour) + ":0" + str(ttime.minute) + ", " + str(ttime.day) + "/" + str(ttime.month) + "/" + str(ttime.year)
+        times.append(newtime)
     newbod = [] # Creates a list for the processed bodies (again not as sus as it sounds)
     for body in bodies: # For every tweet body we have
         if not body.startswith(".@BorisJohnson"): # If it's not funky retweet
