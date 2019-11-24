@@ -1,4 +1,4 @@
-import random
+import random, re
 
 uwuDict = {
     "r" : "w",
@@ -13,6 +13,11 @@ vowels = ("a", "e", "i", "o", "u")
 def uwuMe(message):
     """Takes string 'message' and returns the message in uwu form."""
     table = message.maketrans(uwuDict) # Creates translation table from dictionary
+    reurl = re.search("https:[^ ]*",message)
+    url = ""
+    if reurl != None:
+        url = reurl.group(0)
+        message = message.replace(url,"")
     firstpass = message.translate(table) # Applies translation table to first pass
     secondpass = ""
     j = len(firstpass)-1
@@ -35,4 +40,4 @@ def uwuMe(message):
         thirdpass += "UwU... " + secondpass # uwu goes before
     else:
         thirdpass += secondpass + " UwU" # uwu goes after
-    return thirdpass # Return the result
+    return thirdpass + " " + url # Return the result
