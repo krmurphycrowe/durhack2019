@@ -30,7 +30,10 @@ def getBowisTweets():
         except AttributeError: # Yada yada tweepy is dumb
             bodies.append(tweet.full_text) # Append the text of the tweet
         ttime = tweet.created_at
-        times.append(str(ttime.hour) + ":" + str(ttime.minute) + ", " + str(ttime.day) + "/" + str(ttime.month) + "/" + str(ttime.year))
+        if str(ttime.minute):
+            newtime = str(ttime.hour) + ":0" + str(ttime.minute) + ", " + str(ttime.day) + "/" + str(ttime.month) + "/" + str(ttime.year)
+        else:
+            newtime = str(ttime.hour) + ":0" + str(ttime.minute) + ", " + str(ttime.day) + "/" + str(ttime.month) + "/" + str(ttime.year)
     newbod = [] # Creates a list for the processed bodies (again not as sus as it sounds)
     for body in bodies: # For every tweet body we have
         if not body.startswith(".@BorisJohnson"): # If it's not funky retweet
