@@ -30,12 +30,13 @@ function getPage(pg){
             if (tweetArray[i-1] == "EMPTY"){
                 document.getElementById("b"+i.toString()).innerHTML = "";
                 document.getElementById("t"+i.toString()).innerHTML = "";
-                document.getElementById("img"+i.toString()).innerHTML = "";
+                document.getElementById("img"+i.toString()).src="";
             }
             else{
                 document.getElementById("b"+i.toString()).innerHTML = "@BowisJownson";
                 document.getElementById("t"+i.toString()).innerHTML = tweetArray[i-1];
-                document.getElementById("img"+i.toString()).innerHTML = "";
+                document.getElementById("img"+i.toString()).src="buwuis.jpg";
+                document.getElementById("img"+i.toString()).width="100";
             }
             i++;
         }
