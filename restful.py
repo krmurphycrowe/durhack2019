@@ -30,6 +30,7 @@ def getBowisTweets():
         except AttributeError: # Yada yada tweepy is dumb
             bodies.append(tweet.full_text) # Append the text of the tweet
         ttime = tweet.created_at
+
         if str(ttime.minute):
             newtime = str(ttime.hour) + ":0" + str(ttime.minute) + ", " + str(ttime.day) + "/" + str(ttime.month) + "/" + str(ttime.year)
         else:
