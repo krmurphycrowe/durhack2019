@@ -7,7 +7,10 @@ function getPage(pg){
     Http.onreadystatechange=(e)=>{
         let res = Http.responseText;
         let tweetArray = JSON.parse(res);
+        while (tweetArray.length != 20){
+            tweetArray.push("EMPTY");
+        }
         console.log(typeof(tweetArray));
-        console.log(tweetArray);
+        console.log(tweetArray.length); 
     }
 }
