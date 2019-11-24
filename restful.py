@@ -56,7 +56,7 @@ def api_id():
         cachedTweets = getBowisTweets()
         cachedTime = datetime.datetime.now()
 
-    selected = cachedTweets[(page-1)*20:page*20]
+    selected = (cachedTweets[0][(page-1)*20:page*20],cachedTweets[1][(page-1)*20:page*20])
 
     return json.dumps(selected)
 
