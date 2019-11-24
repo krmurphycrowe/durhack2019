@@ -43,7 +43,7 @@ def getBowisTweets():
     uwus = []
     for body in newbod:
         uwus.append(uwu.uwuMe(body))
-    return (uwus[::-1], times) # Tweepy fetches them most-recent first and we want most-recent last, so we flip the list
+    return (uwus, times) # Tweepy fetches them most-recent first and we want most-recent last, so we flip the list
 
 cachedTweets = getBowisTweets()
 cachedTime = datetime.datetime.now()
