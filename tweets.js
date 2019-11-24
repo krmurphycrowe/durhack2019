@@ -35,7 +35,7 @@ function getPage(pg){
                 document.getElementById("img"+i.toString()).src="";
             }
             else{
-                document.getElementById("b"+i.toString()).innerHTML = "@BowisJownson - " + timeArray[i];
+                document.getElementById("b"+i.toString()).innerHTML = "@BowisJownson - " + timeArray[i-1];
                 document.getElementById("t"+i.toString()).innerHTML = tweetArray[i-1];
                 document.getElementById("img"+i.toString()).src="buwuis.jpg";
                 document.getElementById("img"+i.toString()).class="img-responsive img-fluid";
